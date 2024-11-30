@@ -1,0 +1,40 @@
+import time
+
+class Empirical:
+
+    @staticmethod
+    def fact(n):
+        """Iterative factorial implementation."""
+        f = 1
+        for i in range(1, n + 1):
+            f *= i
+        return f
+
+    @staticmethod
+    def fact2(n):
+        """Recursive factorial implementation."""
+        if n == 0:
+            return 1
+        return n * Empirical.fact2(n - 1)
+
+    @staticmethod
+    def main():
+        # Input from the user
+        x = int(input("Enter a number: "))
+
+        # Measure start time
+        start_time = time.time()
+
+        # Calculate factorial
+        result = Empirical.fact2(x)
+        print(f"Factorial of {x} is: {result}")
+
+        # Measure end time and calculate elapsed time
+        end_time = time.time()
+        elapsed_time = (end_time - start_time) * 1000  # Convert to milliseconds
+        print(f"Elapsed time: {elapsed_time:.3f} ms")
+
+
+# To run the equivalent main method
+if __name__ == "__main__":
+    Empirical.main()
